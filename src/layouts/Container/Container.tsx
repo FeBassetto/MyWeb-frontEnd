@@ -1,6 +1,6 @@
 import React, { PropsWithChildren } from "react";
 import styled from "styled-components";
-import IStyledTheme from "../../models/styledtheme/IStyledTheme";
+import IStyledTheme from "../../models/IStyledtheme/IStyledTheme";
 import styles from "./Container.module.css";
 
 const StyledContainer = styled.main`
@@ -9,7 +9,7 @@ const StyledContainer = styled.main`
 
 const Container = ({ children }: PropsWithChildren) => {
   return (
-    <StyledContainer className={styles.container}> <h1>oi</h1>{children}</StyledContainer>
+    <StyledContainer className={styles.container}>{children}</StyledContainer>
   );
 };
 

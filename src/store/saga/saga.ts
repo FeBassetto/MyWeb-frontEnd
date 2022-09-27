@@ -1,7 +1,5 @@
-import {all, fork} from 'redux-saga/effects'
+import { all, fork } from "redux-saga/effects";
 
-export default function* saga(){
-    yield all([
-        
-    ])
+export default function* saga() {
+  yield all([]);
 }

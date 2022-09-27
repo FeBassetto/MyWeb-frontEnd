@@ -1,18 +1,21 @@
-import React, {PropsWithChildren, useState} from 'react';
-import { ThemeProvider } from 'styled-components';
-import { darkMode, lightMode } from '../../config/themes';
+import React, { PropsWithChildren } from "react";
+import { ThemeProvider } from "styled-components";
+import { darkMode, lightMode } from "../../config/themes";
 
-const ProviderTheme = ({children}:PropsWithChildren) => {
+import { connect } from "react-redux";
 
-    const [light, setLight] = useState(true);
-
-    const theme = light ? lightMode : darkMode;
+const ProviderTheme: React.FC<PropsWithChildren | any> = ({ children, lightModeTheme }) => {
+    const theme = lightModeTheme ? lightMode : darkMode;
 
     return (
         <ThemeProvider theme={theme}>
             {children}
         </ThemeProvider>
     )
-}
+};
 
-export default ProviderTheme
+const mapStateToProps = (state: any) => ({
+    lightModeTheme: state.themeReducer.lightMode,
+});
+
+export default connect(mapStateToProps)(ProviderTheme);
